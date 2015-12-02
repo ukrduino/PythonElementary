@@ -1,0 +1,6 @@
+NEED TO KNOW
+1. What is Python and what versions we should use and why?
+2. How to install Python on your system.
+3. What is a virtual environment and why do we need it?
+4. What is pep8, and why it is recommended to follow it?
+5. How to write a simple program and run it from the command line.

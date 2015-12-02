@@ -36,7 +36,7 @@ def factorial_of_big_number_in_threads(number, number_of_threads):
         # of certain length for calculating factorial in threads.
         # We need separate chunk fo each thread.
         full_chunk_length = len(list_of_numbers_for_factorial) // \
-                                num_of_threads + 1  # +1 for round up
+            num_of_threads + 1  # +1 for round up
 
         list_of_chunks = [list_of_numbers_for_factorial[i:i +
                                                         full_chunk_length]

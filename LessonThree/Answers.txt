@@ -1,0 +1,9 @@
+NEED TO KNOW
+1. The differences between list, tuple, and set.
+2. What is a dictionary?
+3. Which types are mutable, and which are not?
+4. What does “tuple unpacking” mean?
+5. What is list comprehension and dictionary comprehension?
+6. What’s the result of the expression [1, 2, 3][0 or 2] and why?
+7. What does a generator return? What are the pros and cons of using generators?
+8. How are exceptions handled? How to raise an exception?

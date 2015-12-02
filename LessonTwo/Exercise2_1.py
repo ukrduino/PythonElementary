@@ -5,6 +5,7 @@
 # 5! = 5  *  4  *  3  *  2  *  1 = 120.
 
 
+# using recursion
 def factorial_rec(n):
     if n < 2:
         return 1
@@ -12,6 +13,7 @@ def factorial_rec(n):
         return n * factorial_rec(n - 1)
 
 
+# using loop
 def factorial_loop(n):
     fact = 1
     for i in range(2, n + 1):

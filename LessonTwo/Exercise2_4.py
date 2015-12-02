@@ -16,7 +16,8 @@ def wrapped_with_timer(func):
 
 @wrapped_with_timer
 def factorial_r(n):
-    return factorial_rec(n)\
+    return factorial_rec(n)
+
 
 @wrapped_with_timer
 def factorial_l(n):

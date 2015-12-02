@@ -4,8 +4,8 @@
 def add(n):
     return lambda x: n + x
 
-print add(10)(5)
-
-print add("Hellow")(" world")
-
-print add([77])([10])
+# print add(10)(5)
+#
+# print add("Hellow")(" world")
+#
+# print add([77])([10])
