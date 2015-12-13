@@ -1,0 +1,7 @@
+NEED TO KNOW
+1. How to open and how to close a file.
+2. What does the keyword with mean?
+3. What is a module?
+4. How to write your own module?
+5. How to write and run unit tests?
+6. How to mock user input and file system calls?
