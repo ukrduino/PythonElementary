@@ -1,7 +1,8 @@
 # Write a decorator that computes the execution time of the decorated function
 import time
-from LessonTwo.Exercise2_1 import factorial_rec
-from LessonTwo.Exercise2_1 import factorial_loop
+
+from Lesson02.Exercise2_1 import factorial_loop
+from Lesson02.Exercise2_1 import factorial_rec
 
 
 def wrapped_with_timer(func):

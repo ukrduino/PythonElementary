@@ -2,8 +2,9 @@
 import threading
 from Queue import Queue
 from operator import mul
-from LessonTwo.Exercise2_4 import factorial_l
-from LessonTwo.Exercise2_4 import wrapped_with_timer
+
+from Lesson02.Exercise2_4 import factorial_l
+from Lesson02.Exercise2_4 import wrapped_with_timer
 
 
 # @wrapped_with_timer

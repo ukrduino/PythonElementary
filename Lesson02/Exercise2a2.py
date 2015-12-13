@@ -4,7 +4,8 @@
 import cProfile
 import pstats
 import sys
-from LessonTwo.Exercise2_1 import factorial_loop
+
+from Lesson02.Exercise2_1 import factorial_loop
 
 
 class Profiled(object):

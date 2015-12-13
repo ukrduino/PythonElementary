@@ -1,0 +1,13 @@
+NEED TO KNOW
+
+1. Inheritance in Python.
+2. What does mixin mean?
+3. Difference between new and old style classes.
+4. How to define a class?
+5. What is the difference between class attribute and instance attribute?
+6. What does magic methods mean?
+7. How to check if an object is an instance of a particular type?
+8. What does duck-typing mean?
+9. What is public, private and protected attributes in Python?
+10. What does name mangling mean?
+
