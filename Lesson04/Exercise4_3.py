@@ -41,8 +41,14 @@ with open(filename) as f:
     words_counter(text_from_file)
 
 
+def charcount(filename):
+    return len(open(filename).read())
 
 
+def wordcount(filename):
+    return len(open(filename).read().split())
+
+# http://anandology.com/python-practice-book/working-with-data.html
 
 
 
