@@ -5,6 +5,4 @@ def string_sorter(string_to_sort):
             chars_dict[char] += 1
         else:
             chars_dict[char] = 1
-    for char, number in chars_dict.items():
-        print "char [" + char + "] - " + str(number)
     return chars_dict
