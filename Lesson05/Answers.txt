@@ -3,15 +3,13 @@ NEED TO KNOW
 1. Inheritance in Python.
 
     В Python помимо простого наследования возможно множественное наследование,
-    для наследования от нескольких
-    классов их нужно указать в скобках после имени класса.
+    для наследования от нескольких классов их нужно указать в скобках после имени класса.
     Атрибуты класса ищутся в описании самого класса потом — слева направо в
-    родительских объектках, потом — в родительских объектах этих
+    родительских объектах, потом — в родительских объектах этих
     родительских объектов.
     В то время как иерархия наследования прослеживается с права на лево.
     При поиске используется MRO (method resolution order).
     Посмотреть порядок поиска можно в свойстве класса __mro__
-
 
 2. What does mixin mean?
 
@@ -22,155 +20,54 @@ NEED TO KNOW
 
 3. Difference between new and old style classes.
 
-    Старые классы имели собственное название которое можно было посмотреть в x.__class__,
-    но тип сущьности созданной из класса всегда был 'instance'. Т.
-
-New-style and classic classes
-Classes and instances come in two flavors: old-style (or classic) and new-style.
-Up to Python 2.1 the concept of class was unrelated to the concept of type, and old-style classes were the only
-flavor available. For an old-style class, the statement x.__class__ provides the class of x, but type(x)
-is always <type 'instance'>. This reflects the fact that all old-style instances,
-independent of their class, are implemented with a single built-in type, called instance.
-
-New-style classes were introduced in Python 2.2 to unify the concepts of class and type.
-A new-style class is simply a user-defined type, no more, no less. If x is an instance of a new-style class,
-then type(x) is typically the same as x.__class__ (although this is not guaranteed – a new-style class instance
-is permitted to override the value returned for x.__class__).
-
-The major motivation for introducing new-style classes is to provide a unified object model with a full
-meta-model. It also has a number of practical benefits, like the ability to subclass most built-in types,
-or the introduction of “descriptors”, which enable computed properties.
-
-For compatibility reasons, classes are still old-style by default. New-style classes are created by
-specifying another new-style class (i.e. a type) as a parent class, or the “top-level type” object if
-no other parent is needed. The behaviour of new-style classes differs from that of old-style classes
-in a number of important details in addition to what type() returns. Some of these changes are fundamental
-to the new object model, like the way special methods are invoked. Others are “fixes” that could not be
-implemented before for compatibility concerns, like the method resolution order in case of multiple inheritance.
-
-While this manual aims to provide comprehensive coverage of Python’s class mechanics, it may still be
-lacking in some areas when it comes to its coverage of new-style classes.
-Please see https://www.python.org/doc/newstyle/ for sources of additional information.
-
-Old-style classes are removed in Python 3, leaving only new-style classes.
+    Старые классы имели собственное название которое можно было посмотреть в __class__,
+    но тип(type) экземпляра класса всегда был 'instance'. Кроме того все старые классы могли
+    не наследоваться от какого либо класса.
+    Новые классы всегда наследуются от какого либо класса или от базового класса object.
+    Новые классы всегда имеют тип соответствующий классу т.е в новых классах это одно и тоже
 
 4. How to define a class?
 
+   Для этого используется инструкция class. Это составная инструкция, которая состоит из строки заголовка и тела.
+   Заголовок состоит из ключевого слова class, имени класса и, возможно, названий суперклассов в скобках.
+   Тело класса состоит из блока различных инструкций. Тело должно иметь отступ (как и любые вложенные
+   конструкции в языке Python).
 
 5. What is the difference between class attribute and instance attribute?
-
-
+    Атрибуты класса доступны всем экземплярам этого класса, а атрибуты экземпляра доступны только
+    данному экземпляру. Атрибуты класса например можно использовать для подсчета количества
+    созданных экземпляров класса. К атрибутам класса можно получить доступ как через сам класс так
+    и через его экземпляры.
 
 6. What does magic methods mean?
+    Магические методы позволяют изменить поведение классов, реакцию классов на встроенные функции, вызов этих методов
+    не производится на прямую, а происходит зачастую из встроенных функций
 
-http://www.rafekettler.com/magicmethods.html
-http://habrahabr.ru/post/186608/
-Магические методы позволяют изменить поведение классов, реацию классов на встроенные функции, вызов этих методов
-не производится на прямую, а происходит зачастую из встроенных функций
+    Operator   magic method
+    +          object.__add__(self, other)
+    -          object.__sub__(self, other)
 
-Operator	Method
-+	object.__add__(self, other)
--	object.__sub__(self, other)
-*	object.__mul__(self, other)
-//	object.__floordiv__(self, other)
-/	object.__div__(self, other)
-%	object.__mod__(self, other)
-**	object.__pow__(self, other[, modulo])
-<<	object.__lshift__(self, other)
->>	object.__rshift__(self, other)
-&	object.__and__(self, other)
-^	object.__xor__(self, other)
-|	object.__or__(self, other)
-Operator	Method
-+=	object.__iadd__(self, other)
--=	object.__isub__(self, other)
-*=	object.__imul__(self, other)
-/=	object.__idiv__(self, other)
-//=	object.__ifloordiv__(self, other)
-%=	object.__imod__(self, other)
-**=	object.__ipow__(self, other[, modulo])
-<<=	object.__ilshift__(self, other)
->>=	object.__irshift__(self, other)
-&=	object.__iand__(self, other)
-^=	object.__ixor__(self, other)
-|=	object.__ior__(self, other)
-
-МОжно например изменить поведение объекта при вызове функции add() т.е. +
-
+    Можно например изменить поведение экземпляра класса при вызове функции add() к нему
 
 7. How to check if an object is an instance of a particular type?
 
-Use the built-in function isinstance().
-
-if isinstance(obj, MyClass):
-     print "obj is my object"
-or
-
-is_class = hasattr(obj, '__name__')
-
-or
-
-test = "kuuig"
-
-type(test)
-
-returns
-
-<type 'str'>
-
+    1. С помощью функции isinstance().
+    2. С помощью функции type()
 
 8. What does duck-typing mean?
-"When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck."
- 	--James Whitcomb Riley
 
-The term duck-typing comes from this quote. In programming terms, this means that the important thing about a
-value is what it can do, not its type. Other article on duck typing says, “Simply stated: provided you can
-perform the job, we don't care who your parents are.”
-Python doesn't care about the type, just the operations that it supports.
-For example all sequence types (such as list, str, and tuple) are iterables so we can use for loop without
-knowing their types.
+    Утиная типизация - динамическая типизация. Т.е. обращаясь к экземпляру какого либо
+    класса(например одного из коллекций) мы можем не интересоваться какого именно он класса,
+    а просто использовать его в цикле подразумевая что он является iterable.
 
 9. What is public, private and protected attributes in Python?
 
-All member variables and methods are public by default in Python.
-
-Protected member for example in Java is accessible only from within the class and it’s subclasses.
-How to accomplish this in Python? The answer is – by convention. By prefixing the name of your member
-with a single underscore, you’re telling others “don’t touch this, unless you’re a subclass”
-
-By declaring your data member private you mean, that nobody should be able to access it from outside the class,
-i.e. strong you can’t touch this policy. Python supports a technique called name mangling.
-This feature turns every member name prefixed with at least two underscores and suffixed with at most one
-underscore into _<className>.<memberName> .
-class Parent(object):
-   __name = "John Smith"
-
-class Child(Parent):
-   __name = "John Smith Junior"
-
-Child will have : _Parent__name and _Child__name attributes
-Strategy used in Python:
-
-Just write the damn thing, make no assumptions about how your data should be protected.
-This assumes that you write to create the ideal interfaces for your problems.
-
-Use a leading underscore for stuff that probably won't be used externally, and isn't part of the
-normal "client code" interface.
-
-Use double underscore only for things that are purely convenience inside the class, or will
-cause considerable damage if accidentally exposed.
+    В Python все атрибуты по умолчанию public если это специально не
+    отмечено в имени атрибута. Что бы сделать атрибут protected перед именем пишется одно
+    подчеркивание _, что бы сделать private два подчеркивания __,
 
 10. What does name mangling mean?
 
-In Python, mangling is used for "private" class members which are designated as such by giving them a name
-with two leading underscores and no more than one trailing underscore.
-For example, __thing will be mangled, as will ___thing and __thing_, but __thing__ and __thing___ will not.
-Python's runtime does not restrict access to such members, the mangling only prevents name collisions if a
-derived class defines a member with the same name.
-
-From the official pep 8 documentation.
-If your class is intended to be subclassed, and you have attributes that you do not want subclasses to use,
-consider naming them with double leading underscores and no trailing underscores.
-This invokes Python's name mangling algorithm, where the name of the class is mangled into the
-attribute name. This helps avoid attribute name collisions should subclasses inadvertently contain
-attributes with the same name.
+    Name mangling(изменение имени атрибута) испольуется для правильного доступа к
+    private атрибутам в иерархии наследования. К имени атрибута с двумя подчеркиваниями
+    спереди добавляется имя класса с одним подчёркиванием.

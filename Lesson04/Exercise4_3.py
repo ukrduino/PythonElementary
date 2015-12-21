@@ -37,18 +37,7 @@ def words_counter(text_to_process):
     word_sorter(all_words_list)
 
 with open(filename) as f:
-    text_from_file = f.read()
-    words_counter(text_from_file)
-
-
-def charcount(filename):
-    return len(open(filename).read())
-
-
-def wordcount(filename):
-    return len(open(filename).read().split())
-
-# http://anandology.com/python-practice-book/working-with-data.html
+    words_counter(f.read())
 
 
 
