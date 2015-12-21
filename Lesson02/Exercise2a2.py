@@ -32,6 +32,3 @@ result2 = factorial_loop(50000)
 print result2
 print result1 == result2
 
-# http://stackoverflow.com/questions/1584425/return-value-while-using-cprofile
-# http://stackoverflow.com/questions/4650333/difference-between-decorator-classes-and-decorator-functions
-# Profiling threads http://stackoverflow.com/a/1922945

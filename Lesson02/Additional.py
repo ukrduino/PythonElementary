@@ -37,4 +37,8 @@ def guess_me():
         if not guessed:
             print "Its impossible combination!!!"
 
-guess_me()
+
+if __name__ == "__main__":
+    print "This game - guess arithmetic actions that can give such result \n" \
+          "1?15?3.....?=12 / number of inputs can be different"
+    guess_me()
