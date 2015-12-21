@@ -21,7 +21,9 @@ NEED TO KNOW
      При использовании mixin важен порядок указания их в скобках после имени файла.
 
 3. Difference between new and old style classes.
-old-style
+
+    Старые классы имели собственное название которое можно было посмотреть в x.__class__,
+    но тип сущьности созданной из класса всегда был 'instance'. Т.
 
 New-style and classic classes
 Classes and instances come in two flavors: old-style (or classic) and new-style.
