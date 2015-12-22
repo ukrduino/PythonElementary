@@ -11,17 +11,18 @@ class Test(unittest.TestCase):
         self.wrong_char_dict = {'m': 3, 'a': 4, 'i': 1, 'l': 1, 'r': 1, 'u': 1}
 
     def test_string_sorter_01(self):
-        self.assertDictEqual(string_sorter(self.rand_str), self.char_dict, "Calculated number of each character in "
-                                                                           "rand_str should be equal to "
-                                                                           "number of characters in char_dict")
+        self.assertDictEqual(string_sorter(self.rand_str),
+                             self.char_dict,
+                             "Calculated number of each character in "
+                             "rand_str should be equal to "
+                             "number of characters in char_dict")
 
     def test_string_sorter_02(self):
-        self.assertFalse(string_sorter(self.rand_str) == self.wrong_char_dict, "Calculated number of each character "
-                                                                               "in rand_str should not be equal to "
-                                                                               "number of characters in "
-                                                                               "wrong_char_dict")
+        self.assertFalse(string_sorter(self.rand_str) == self.wrong_char_dict,
+                         "Calculated number of each character "
+                         "in rand_str should not be equal to "
+                         "number of characters in wrong_char_dict")
 
 
 if __name__ == "__main__":
     unittest.main()
-

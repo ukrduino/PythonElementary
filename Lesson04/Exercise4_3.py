@@ -1,4 +1,5 @@
-# Write a program that computes the statistics of a file's content: most frequent word,
+# Write a program that computes the statistics of a file's content:
+# most frequent word,
 # number of words, and number of characters.
 import os
 
@@ -21,7 +22,9 @@ def word_sorter(word_list_to_sort):
     max_number_of_uses = max(number_of_uses_list)
     # return the key with the max value
     most_used_word = word_list[number_of_uses_list.index(max_number_of_uses)]
-    print "Most frequently used word is - [" + most_used_word + "]. It used - " + str(max_number_of_uses) + " times."
+    print "Most frequently used word is - [" \
+          + most_used_word + "]. It used - " \
+          + str(max_number_of_uses) + " times."
 
 
 def words_counter(text_to_process):
@@ -33,12 +36,11 @@ def words_counter(text_to_process):
         .split(" ")
     while all_words_list.count("") > 0:
         all_words_list.remove("")
-    print "Given file has: " + str(len(all_words_list)) + " words and " + str(len(text_to_process)) + " characters."
+    print "Given file has: " + str(len(all_words_list)) + " words and " + \
+          str(len(text_to_process)) + " characters."
     word_sorter(all_words_list)
 
-with open(filename) as f:
-    words_counter(f.read())
 
-
-
-
+if __name__ == "__main__":
+    with open(filename) as f:
+        words_counter(f.read())
