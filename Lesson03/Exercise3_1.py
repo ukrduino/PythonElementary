@@ -16,5 +16,7 @@ def string_sorter(string_to_sort):
     for char, number in chars_dict.items():
         print "char [" + char + "] - " + str(number)
 
-print string
-string_sorter(rand_str)
+
+if __name__ == "__main__":
+    print rand_str
+    string_sorter(rand_str)
