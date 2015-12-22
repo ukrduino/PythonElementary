@@ -2,10 +2,18 @@
 
 
 def add(n):
+    """
+    >>> print add(10)(5)
+    15
+    >>> print add("Hellow ")("world")
+    Hellow world
+    >>> print add([77])([10])
+    [77, 10]
+    """
     return lambda x: n + x
 
-# print add(10)(5)
-#
-# print add("Hellow")(" world")
-#
-# print add([77])([10])
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+

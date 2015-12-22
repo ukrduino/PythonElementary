@@ -5,23 +5,31 @@
 # 5! = 5  *  4  *  3  *  2  *  1 = 120.
 
 
-# using recursion
 def factorial_rec(n):
+    """
+    Computing factorial using recursion
+    >>> print factorial_rec(10)
+    3628800
+    """
+
     if n < 2:
         return 1
     else:
         return n * factorial_rec(n - 1)
 
 
-# using loop
 def factorial_loop(n):
+    """
+    Computing factorial using loop
+    >>> print factorial_loop(10)
+    3628800
+    """
     fact = 1
     for i in range(2, n + 1):
         fact *= i
     return fact
 
 
-# print factorial_rec(100)
-# print factorial_loop(100)
-#
-# print str(factorial_rec(100) == factorial_loop(100))
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

@@ -26,9 +26,8 @@ class Profiled(object):
 def factorial_l(n):
     return factorial_loop(n)
 
-result1 = factorial_l(50000)
-print result1
-result2 = factorial_loop(50000)
-print result2
-print result1 == result2
+
+if __name__ == "__main__":
+    result1 = factorial_l(50000)
+    print result1
 

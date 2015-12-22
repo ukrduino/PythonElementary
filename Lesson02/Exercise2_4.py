@@ -6,6 +6,9 @@ from Lesson02.Exercise2_1 import factorial_rec
 
 
 def wrapped_with_timer(func):
+    """
+    Computes the execution time of the decorated function
+    """
     def wrapper(*args, **kwargs):
         time_of_start = time.clock()
         wrapped_function = func(*args, **kwargs)
@@ -24,5 +27,7 @@ def factorial_r(n):
 def factorial_l(n):
     return factorial_loop(n)
 
-# factorial_r(500)
-# factorial_l(500)
+
+if __name__ == "__main__":
+    factorial_r(500)
+    factorial_l(500)

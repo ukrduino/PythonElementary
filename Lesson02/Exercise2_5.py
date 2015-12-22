@@ -3,6 +3,7 @@ import threading
 from Queue import Queue
 from operator import mul
 
+from Lesson02.Exercise2_1 import factorial_loop
 from Lesson02.Exercise2_4 import factorial_l
 from Lesson02.Exercise2_4 import wrapped_with_timer
 
@@ -18,7 +19,7 @@ def factorial_of_big_number_in_threads(number, number_of_threads):
     if number < 100:
         print "Calculating factorial of " + str(number) + " in 1 threads."
         return factorial_l(number)
-    elif number > 100:
+    else:
         # step 0 - restricting number of threads
         num_of_threads = 1
         if number_of_threads > 1:
@@ -67,11 +68,11 @@ def factorial_of_big_number_in_threads(number, number_of_threads):
         return res
 
 
-res1 = factorial_of_big_number_in_threads(54476, 5)
-res2 = factorial_l(54476)
-print "Check successful -> " + str(res1 == res2)
+if __name__ == "__main__":
+    res1 = factorial_of_big_number_in_threads(54476, 5)
+    res2 = factorial_l(54476)
+    print "Check successful -> " + str(res1 == res2)
 
-#
-# res3 = factorial_of_big_number_in_threads(5, 10)
-# res4 = factorial_loop(5)
-# print "Check successful -> " + str(res3 == res4)
+    res3 = factorial_of_big_number_in_threads(5, 10)
+    res4 = factorial_loop(5)
+    print "Check successful -> " + str(res3 == res4)
