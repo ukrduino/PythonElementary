@@ -27,20 +27,29 @@ NEED TO KNOW
 
     2. Написать класс который при инициализации создает внутри себя переменную
     с декорируемой функцией и имеет метод __call__ при вызове которого
-    выполняется функция(задекорированная) сохраненная в локальной переменной.
+    выполняется задекорированная функция
 
-         class decorator(object):
+    class Decorator(object):
 
-             def __init__(self, function_to_decorate):
-                 self.func = wrapper()
+        def __init__(self, function_to_decorate):
+            self.func = function_to_decorate
 
-             def wrapper(*args, **kwargs):
-                 print "before"
-                 function_to_decorate(*args, **kwargs)
-                 print "after"
+        def wrapped_function(self, *args, **kwargs):
+            print "before"
+            self.func(*args, **kwargs)
+            print "after"
 
-             def __call__(self, *args, **kwargs):
-                 return self.func(*args, **kwargs)
+        def __call__(self, *args, **kwargs):
+            return self.wrapped_function(*args, **kwargs)
+
+        @Decorator
+        def test_func():
+            print "inside"
+
+        >>> test_func()
+        before
+        inside
+        after
 
 4. How to start a new thread and attach it to the main thread.
     1. Используя библиотеку threading создаем поток th который будет выполнять

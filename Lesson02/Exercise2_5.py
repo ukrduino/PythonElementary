@@ -1,9 +1,9 @@
+# -*- coding: utf-8 -*-
 # Write a function that computes a large factorial using multiple threads
 import threading
 from Queue import Queue
 from operator import mul
 
-from Lesson02.Exercise2_1 import factorial_loop
 from Lesson02.Exercise2_4 import factorial_l
 from Lesson02.Exercise2_4 import wrapped_with_timer
 
@@ -16,6 +16,18 @@ def multiply_numbers_in_chunk(chunk, queue):
 
 @wrapped_with_timer
 def factorial_of_big_number_in_threads(number, number_of_threads):
+    '''
+    формула вычисления факториала 5
+    5! = 5 * 4 * 3 * 2 * 1 = 120.
+    вычисление факторила можно разбить на блоки
+    5! = (5 * 4) * (3 * 2 * 1 )= 120.
+    которые можем вычислять в несколько потоков
+    т.е. мы делаем список состоящий из списков
+    [[5, 4],[3, 2, 1]]
+    в которых будем перемножать элементы в несколько потоков и класть
+    результаты в Queue т.к. она threadsafe, а потом возьмем результаты
+    из очереди и перемножим.
+    '''
     if number < 100:
         print "Calculating factorial of " + str(number) + " in 1 threads."
         return factorial_l(number)
@@ -37,11 +49,12 @@ def factorial_of_big_number_in_threads(number, number_of_threads):
         # step 2 - splitting list_of_numbers_for_factorial for chunks(lists)
         # of certain length for calculating factorial in threads.
         # We need separate chunk fo each thread.
-        full_chunk_length = len(list_of_numbers_for_factorial) // \
-            num_of_threads + 1  # +1 for round up
+        # 5! = (5  *  4)  *  (3  *  2  *  1 )= 120.
+        # [[5, 4],[3, 2, 1]]
 
-        list_of_chunks = [list_of_numbers_for_factorial[i:i +
-                                                        full_chunk_length]
+        full_chunk_length = len(list_of_numbers_for_factorial) // num_of_threads + 1  # +1 for round up
+
+        list_of_chunks = [list_of_numbers_for_factorial[i:i + full_chunk_length]
                           for i in range(0, len(list_of_numbers_for_factorial),
                                          full_chunk_length)]
         q = Queue()
@@ -73,6 +86,3 @@ if __name__ == "__main__":
     res2 = factorial_l(54476)
     print "Check successful -> " + str(res1 == res2)
 
-    res3 = factorial_of_big_number_in_threads(5, 10)
-    res4 = factorial_loop(5)
-    print "Check successful -> " + str(res3 == res4)
